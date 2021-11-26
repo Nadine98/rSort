@@ -40,7 +40,9 @@ int main()
     while((c=fgetc(stdin))!=EOF){
 
 
-    // Array hat begrenzte Speicherplätze --> Array erweitern
+
+
+    // Für den Fall, dass das Array kein Speicherplatz mehr hat --> Array erweitern
         if ( numberOfWords+1 == arraySize){
             arraySize = arraySize *2 ;
 
@@ -58,7 +60,6 @@ int main()
 
 
 
-
 // Hier werden aus dem stdin- Kanal die Wörter eingelesen
 
 
@@ -70,13 +71,13 @@ int main()
             }
 
             // Fall 2) Wortlänge ist kleiner 100 Buchstaben
-            else if ( (lengthOfWord >0 && lengthOfWord< Word_Lenght)&& c==10){
+            else if ( (lengthOfWord >0 && lengthOfWord < Word_Lenght)&& c==10){
                 wordArray[numberOfWords][lengthOfWord]=0;
                 numberOfWords++;
                 lengthOfWord=0;
             }
-            
-            // Fall 3) Zeile ist leer, also wird diese ignoriert 
+
+            // Fall 3) Zeile ist leer, also wird diese ignoriert
             else if(lengthOfWord==0 && c==10){
 				continue;
 			}
@@ -115,7 +116,7 @@ int main()
         if(printf("%s\n", wordArray[i])<0)
             error("Printf");
      }
-     
+
 
 
      // Allokierten Speicher freigeben
